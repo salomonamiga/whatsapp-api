@@ -680,6 +680,8 @@ export class WAStartupService {
         received.messageTimestamp = received.messageTimestamp?.toNumber();
       }
 
+      await this.client.sendPresenceUpdate('unavailable');
+
       const messageRaw: MessageRaw = {
         key: received.key,
         pushName: received.pushName,
